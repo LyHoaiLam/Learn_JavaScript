@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Validator 2</title>
+    <link rel="stylesheet" href="../css/style2.css">
+    
+</head>
+<body>
+
+    <div class="main">
+        <form action="" method="POST" class="form" id="register-form">
+            <h3 class="heading">Thành viên đăng ký</h3>
+            <p class="desc">Hãy đăng ký làm thành viên để có nhiều ưu đãi</p>
+            <div class="spacer"></div>
+
+            <div class="form-group">
+                <label class="form-lable" for="fullname">Full name</label>
+                <input type="text" rules="required" class="form-control" id="fullname" name="fullname" placeholder="Fullname">
+                <span class="form-message"></span>
+            </div>
+
+            <div class="form-group">
+                <label class="form-lable" for="email">Email</label>
+                <input type="email" rules="required|email" class="form-control" id="email" name="email" placeholder="Email">
+                <span class="form-message"></span>
+            </div>
+
+            <div class="form-group">
+                <label class="form-lable" for="password">Password</label>
+                <input type="password" rules="required|min:6" class="form-control" id="password" name="password" placeholder="Password">
+                <span class="form-message"></span>
+            </div>
+
+            <button class="form-submit">Đăng ký</button>
+        </form>
+    </div>
+    
+    <script src="../js/main2.js"></script>
+      <script>
+        var form = new Validator('#register-form')
+        form.onSubmit = function(formData) {
+            console.log(formData)
+        }
+        
+        /*Validator('#register-form',
+        {onSubmit: function(data){
+            console.log('Call API')
+            }
+        });*/
+       
+
+    </script>
+    
+</body>
+</html>

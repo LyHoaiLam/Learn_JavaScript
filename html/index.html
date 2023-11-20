@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML Text</title>
+    <link rel="stylesheet" href="../css/styte.css">
+</head>
+<body>
+    <div class="main">
+        <form action="" method="form" class="form" id="form-1">
+            <h3 class="heading">Thành viên đăng ký</h3>
+            <p class="desc">Hãy đăng ký làm thành viên để có nhiều ưu đãi</p>
+            <div class="spacer"></div>
+
+            <div class="form-group">
+                <label class="form-lable" for="fullname">Full name</label>
+                <input type="text" class="form-control" id="fullname" name="fullname" placeholder="Fullname">
+                <span class="form-message"></span>
+            </div>
+
+            <div class="form-group">
+                <label class="form-lable" for="email">Email</label>
+                <input type="email" class="form-control" id="email" name="email" placeholder="Email">
+                <span class="form-message"></span>
+            </div>
+
+            <div class="form-group">
+                <label class="form-lable" for="password">Password</label>
+                <input type="password" class="form-control" id="password" name="password" placeholder="Password">
+                <span class="form-message"></span>
+            </div>
+
+            <div class="form-group">
+                <label class="form-lable" for="password_confirmation">Nhập lại Password</label>
+                <input type="password" class="form-control" id="password_confirmation" name="password_confirmation" placeholder="Password confirmation">
+                <span class="form-message"></span>
+            </div>
+
+            <!--<div class="form-group">
+                <label class="form-lable" for="province">Tỉnh thành phố</label>
+                <select class="form-control" name="province" id="province">
+                    <option value="">-- Chọn tỉnh thành phố</option>
+                    <option value="HN">-- Hà Nội</option>
+                    <option value="HCM">-- Thành phố Hồ Chi Minh</option>
+                    <option value="DN">-- Đà Năng</option>
+                    <option value="CT">-- Cần Thơ</option>
+                </select>
+                <span class="form-message"></span>
+            </div>
+
+            <div class="form-group">
+                <label for="password_confirmation" class="form-lable">Giới tính</label>
+                <div>
+                    <input type="checkbox" class="form-control" value="male" name="gender">Nam
+                </div>
+                <div>
+                    <input type="checkbox" class="form-control" value="famale" name="gender">Nữ
+                </div>
+                <div>
+                    <input type="checkbox" class="form-control" value="orther" name="gender">Khác
+                </div>
+                <span class="form-message"></span>
+            </div> -->
+
+            <button class="form-submit">Register</button>
+        </form>
+    </div>
+
+    <script src="../js/main.js"></script>
+    <script>
+        Validator({
+            form: '#form-1',
+            formGroupSelector: '.form-group',
+            errorSelector: '.form-message',
+            rules: [
+                Validator.isRequired('#fullname', 'Nhập tên đầy đủ của bạn'),
+                Validator.isEmail('#email', 'Vui lòng nhập đúng định dạng email'),
+                Validator.minLength('#password', 6),
+                Validator.isRequired('#password_confirmation'),
+                /*Validator.isRequired('input[name="gender"]'),
+                Validator.isRequired('#province'),*/
+                Validator.isConfirmed('#password_confirmation', function(){
+                    return document.querySelector('#form-1 #password').value
+                }, 'Mật khẩu nhập lại không chính xác')
+            ],
+            onSubmit: function(data){
+                console.log(data)
+            }
+        });
+    </script>
+</body>

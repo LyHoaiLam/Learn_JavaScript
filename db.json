@@ -1,0 +1,34 @@
+{
+  "courses": [
+    {
+      "name": "lam",
+      "description": "15191919",
+      "id": 4
+    },
+    {
+      "name": "JavaScript",
+      "description": "JavaScript là ngôn ngữ lập trình được nhà phát triển sử dụng để tạo trang web tương tác. Từ làm mới bảng tin trên trang mạng xã hội đến hiển thị hình ảnh động và bản đồ tương tác, các chức năng của JavaScript có thể cải thiện trải nghiệm người dùng của trang web.",
+      "id": 5
+    },
+    {
+      "name": "Java",
+      "description": "Java là một ngôn ngữ đa nền tảng, hướng đến đối tượng, lấy mạng làm trung tâm và có thể được sử dụng như một nền tảng. Đây là một ngôn ngữ lập trình nhanh, bảo mật, đáng tin cậy dùng để viết mã cho mọi thứ từ ứng dụng di động, phần mềm doanh nghiệp cho đến các ứng dụng dữ liệu lớn và công nghệ phía máy chủ.",
+      "id": 6
+    },
+    {
+      "name": "Python",
+      "description": "Python là một ngôn ngữ lập trình được sử dụng rộng rãi trong các ứng dụng web, phát triển phần mềm, khoa học dữ liệu và máy học (ML). Các nhà phát triển sử dụng Python vì nó hiệu quả, dễ học và có thể chạy trên nhiều nền tảng khác nhau.",
+      "id": 7
+    },
+    {
+      "name": "HTML",
+      "description": "HTML (viết tắt của từ HyperText Markup Language, hay còn gọi là \"Ngôn ngữ Đánh dấu Siêu văn bản\") là một ngôn ngữ đánh dấu được thiết kế ra để tạo nên các trang web trên World Wide Web. Nó có thể được trợ giúp bởi các công nghệ như CSS và các ngôn ngữ kịch bản giống như JavaScript. Định dạng mở?",
+      "id": 8
+    },
+    {
+      "name": "css",
+      "description": "CSS là viết tắt của Cascading Style Sheets, là một ngôn ngữ thiết kế được sử dụng nhằm mục đích đơn giản hóa quá trình tạo nên một website. CSS được ra mắt vào năm 1996 bởi World Wide Web Consortium (W3C)",
+      "id": 9
+    }
+  ]
+}

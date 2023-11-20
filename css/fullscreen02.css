@@ -1,0 +1,37 @@
+body {
+    margin: 0;
+  }
+  
+  .container {
+    position: relative;
+  }
+  
+  .floating-content {
+    width: 200px; /* Kích thước mặc định nhỏ ban đầu */
+    height: 150px;
+    background-color: #f0f0f0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    font-family: Arial, sans-serif;
+    font-size: 24px;
+    color: #333;
+    cursor: pointer; /* Biến con trỏ chuột thành dấu nhấp nháy */
+    transition: all 0.3s ease;
+    z-index: 1; /* Đặt chỉ số z cao hơn các phần tử bình thường */
+  }
+  
+  .floating-content.large {
+    width: 100vw;
+    height: 100vh;
+    font-size: 36px;
+    z-index: 2; /* Đặt chỉ số z cao hơn các phần tử bình thường nhưng thấp hơn các phần tử khác có z-index lớn hơn */
+  }
+  
+  .other-content {
+    padding: 20px;
+    background-color: #ddd;
+    margin-top: 20px;
+  }
+  

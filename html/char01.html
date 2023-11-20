@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Biểu đồ dây di chuyển liên tục</title>
+  <script src="https://d3js.org/d3.v6.min.js"></script>
+</head>
+<body>
+  <svg width="500" height="300"></svg>
+  <script>
+        // Khởi tạo dữ liệu mẫu
+let data = [
+{ x: 0, y: 100 },
+{ x: 100, y: 200 },
+{ x: 200, y: 150 },
+{ x: 300, y: 100 },
+{ x: 400, y: 250 },
+];
+
+// Khởi tạo kích thước biểu đồ và các thông số
+const svgWidth = 500;
+const svgHeight = 300;
+const margin = { top: 20, right: 20, bottom: 20, left: 50 };
+const width = svgWidth - margin.left - margin.right;
+const height = svgHeight - margin.top - margin.bottom;
+
+// Tạo đối tượng biểu đồ
+const svg = d3.select('svg')
+.attr('width', svgWidth)
+.attr('height', svgHeight);
+
+const g = svg.append('g')
+.attr('transform', `translate(${margin.left}, ${margin.top})`);
+
+// Tạo scale cho trục x và y
+const xScale = d3.scaleLinear()
+.domain([0, d3.max(data, d => d.x)])
+.range([0, width]);
+
+const yScale = d3.scaleLinear()
+.domain([0, d3.max(data, d => d.y)])
+.range([height, 0]);
+
+// Tạo line generator
+const line = d3.line()
+.x(d => xScale(d.x))
+.y(d => yScale(d.y));
+
+// Tạo path cho biểu đồ dâyxcC
+const path = g.append('path')
+.datum(data)
+.attr('fill', 'none')
+.attr('stroke', 'steelblue')
+.attr('stroke-width', 2)
+.attr('d', line);
+
+// Duy chuyển liên tục biểu đồ dâyfdsfsdfsdfsdfds
+const moveLine = () => {
+data.push({ x: data[data.length - 1].x + 50, y: Math.random() * height });
+
+xScale.domain([data[0].x, data[data.length - 1].x]);
+
+path.attr('d', line)
+  .attr('transform', null)
+  .transition()
+  .duration(1000)
+  .attr('transform', `translate(${xScale(-50)},0)`)
+  .on('end', moveLine);
+
+if (data.length > 20) {
+  data.shift();
+  xScale.domain([data[0].x, data[data.length - 1].x]);
+  path.attr('d', line);
+}
+};
+
+// Bắt đầu duy chuyển liên tục biểu đồ
+moveLine();
+
+  </script>
+</body>
+</html>

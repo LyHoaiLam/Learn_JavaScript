@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Biểu đồ tăng dần</title>
+    <!-- Thư viện D3.js -->
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+</head>
+<body>
+    <!-- Địa điểm để vẽ biểu đồ -->
+    <div id="chart"></div>
+
+    <script>
+        // Kích thước của biểu đồ
+        const width = 400;
+        const height = 300;
+
+        // Tạo thang đo cho trục x và y
+        const xScale = d3.scaleLinear()
+            .domain([0, 4]) // Phạm vi dữ liệu từ 0 đến 4
+            .range([0, width]);
+
+        const yScale = d3.scaleLinear()
+            .domain([0, 50]) // Phạm vi dữ liệu từ 0 đến 50
+            .range([height, 0]);
+
+        // Tạo dòng
+        const line = d3.line()
+            .x((d, i) => xScale(i)) // Xác định tọa độ x dựa trên chỉ số của mảng
+            .y(d => yScale(d)); // Xác định tọa độ y dựa trên giá trị trong mảng
+
+        // Tạo biểu đồ
+        const svg = d3.select("#chart")
+            .append("svg")
+            .attr("width", width)
+            .attr("height", height)
+            .append("g");
+
+        // Vẽ đường
+        const path = svg.append("path")
+            .attr("fill", "none")
+            .attr("stroke", "steelblue")
+            .attr("stroke-width", 2);
+
+        // Cập nhật biểu đồ với dữ liệu mới
+        function updateChart() {
+            // Dữ liệu cho biểu đồ
+            const data = [Math.random() * 50, Math.random() * 50, Math.random() * 50, Math.random() * 50, Math.random() * 50];
+
+            // Cập nhật thang đo trục y
+            yScale.domain([0, d3.max(data)]);
+
+            // Cập nhật dòng với dữ liệu mới
+            path.datum(data)
+                .attr("d", line);
+        }
+
+        // Cập nhật biểu đồ liên tục mỗi giây
+        setInterval(updateChart, 1000);
+    </script>
+</body>
+</html>
